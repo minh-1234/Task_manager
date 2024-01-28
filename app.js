@@ -2,6 +2,7 @@
 const express = require('express')
 const app = express();
 const tasks = require("./routers/task");
+const users = require("./routers/users");
 const connectDb = require('./db/connect');
 require('dotenv').config();
 const notfound = require('./middleware/notFound');
@@ -15,6 +16,7 @@ app.use(express.static('./public'));
 
 // Routes
 app.use('/api/v1/tasks', tasks);
+app.use('/api/v1/users', users);
 app.use(notfound);
 // app.use(errorHandlerMiddleware);
 const start = async () => {
